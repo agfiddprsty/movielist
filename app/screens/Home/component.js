@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import MainScreen from '../../components/layouts/MainScreen';
 import Button from '../../components/elements/ButtonPrimary';
 import TextField from '../../components/elements/TextField';
@@ -11,53 +11,56 @@ import { ENDPOINT } from '../../configs';
 // import I18n from '../../i18n';
 
 const Component = props => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [value, setValue] = useState('');
+  console.log(props)
+  const {navigation} = props;
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState();
+  // const [value, setValue] = useState('');
 
-    // useEffect(async () => {
-    //   await actions.fetchGetListUser('1');
-    //   measureNetworkBandwitdh((success, data, error) => {
-    //     if (success) {
-    //       Alert.alert(data);
-    //     } else if (error) {
-    //       Alert.alert(data);
-    //     }
-    //   })
-    // }, []);
+  useEffect(() => {
+    getMovieData()
+  }, [])
 
-    // const loadData = async () => {
-    //   try {
-    //     await setIsLoading(true);
-    //     const result = await ENDPOINT.getListUser('1');
-    //     console.log(result)
-    //   } catch (error) {
-    //     errors.createError(I18n.t('error.timeOutConnection'));
-    //   } finally {
-    //     setIsLoading(false)
-    //   }
-    // };
-
-    const onChangeText = text => {
-      setValue(text)
+  const getMovieData = async () => {
+    try {
+      setIsLoading(true);
+      const result = await ENDPOINT.getMovieList();
+      setData(result.results)
+    } catch (error) {
+      console.log(error)
     }
+  }
 
+  const onPressDetail = (id) => {
+    navigation.navigate('DetailMovie', {id: id})
+  }
+
+  const CardItem = ({ item }) => {
     return (
-      <MainScreen isLoading={isLoading}>
-        {/* <Header title="Home" setting back /> */}
-        <View style={styles.container}>
-          <Text style={styles.century}>Century Gothic</Text>
-          <Text style={styles.janna}>Janna LT</Text>
-          <Button title="Button CTA" type="raised-ripple" iconLeading iconTrailing disabled />
-          <TextField
-            placeholder="Enter Phone number"
-            inputMode="numeric"
-            prefix
-            error="Phone number is required"
-            onChangeText={onChangeText}
-          />
-        </View>
-      </MainScreen>
+      <TouchableOpacity onPress={() => onPressDetail(item.id)} style={styles.containerCard}>
+        <Image
+          style={styles.poster}
+          source={{
+            uri: `https://image.tmdb.org/t/p/w500/${item.poster_path
+              }`,
+          }}
+        />
+        <Text numberOfLines={1} style={styles.movieTitle}>{item.title}</Text>
+      </TouchableOpacity>
     )
+  }
+
+  return (
+    <View style={styles.container}>
+      <FlatList
+        data={data}
+        contentContainerStyle={styles.containerList}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item }) => <CardItem item={item} />}
+        keyExtractor={item => item.id}
+      />
+    </View>
+  )
 }
 
 export default Component;

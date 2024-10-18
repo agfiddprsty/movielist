@@ -6,25 +6,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#080910",
-    padding: 16
-  },
-  containerList: {
+    padding: 16,
     display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10
-  },
-  containerCard: {
-    display: 'flex'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   poster: {
-    width: 180,
+    width: 350,
     height: 350
-  },
-  movieTitle: {
-    ...FONT_BODY_MEDIUM_REGULAR,
-    color: COLOR_WHITE,
-    width: 180,
   }
 });
 

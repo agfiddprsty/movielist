@@ -5,7 +5,7 @@ import storage from '../utils/storage';
 import { STORAGE_KEY } from '../constants';
 
 export const config = {
-  baseUrl: 'http://ec2-3-82-201-59.compute-1.amazonaws.com:9000/'
+  baseUrl: 'https://api.themoviedb.org/3'
 };
 
 export const STATUS_CODE = {
