@@ -83,6 +83,13 @@ android {
         versionName "1.0"
     }
     signingConfigs {
+        release {
+            storeFile file('tp2.keystore')
+            storePassword 'movielist'
+            keyAlias 'tp2'
+            keyPassword 'movielist'
+        }
+
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'
