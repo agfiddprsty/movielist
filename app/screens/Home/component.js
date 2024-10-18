@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import MainScreen from '../../components/layouts/MainScreen';
-import Button from '../../components/elements/Button';
+import Button from '../../components/elements/ButtonPrimary';
 import TextField from '../../components/elements/TextField';
 import styles from './styles';
 import { ENDPOINT } from '../../configs';

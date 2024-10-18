@@ -1,4 +1,4 @@
-package com.emaratalaman
+package com.agfiddprsty.movieapp
 
 import android.app.Application
 import com.facebook.react.PackageList
