@@ -10,8 +10,7 @@ import {
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import { ENDPOINT } from '../../configs/index';
 import BackButton from '../../components/elements/BackButton'
-import { black } from '../../styles/colors';
-import { COLOR_BACKGROUND_PRIMARY_DARK, COLOR_BLACK, COLOR_BLACK_OPACITY50, COLOR_FOREGROUND_BRAND_PRIMARY_LIGHT, COLOR_GREY, COLOR_GREY_DARK } from '../../styles/index';
+import { COLOR_BACKGROUND_PRIMARY_DARK, COLOR_BLACK } from '../../styles/index';
 import styles from './styles';
 
 const Component = (props) => {
@@ -101,12 +100,6 @@ const Component = (props) => {
       )}>
       <View style={styles.container}>
         <View style={styles.conRow}>
-          <Text style={styles.txtTitle}>Genres: </Text>
-          {/* {this.state.genres.map(item => (
-            <Text style={styles.txtInfo}> - {item.name}</Text>
-          ))} */}
-        </View>
-        <View style={styles.conRow}>
           <Text style={styles.txtTitle}>Overview: </Text>
           <Text style={styles.txtOverview}>{detailMovie?.overview}</Text>
         </View>
@@ -117,28 +110,6 @@ const Component = (props) => {
             <Text style={styles.txtOverview}>{detailMovie?.homepage}</Text>
           </TouchableOpacity>
         </View>
-        {/* <View>
-          <Text style={styles.txtTitle}>Videos: </Text>
-          {listVideo.length > 0 ? (
-            <FlatList
-              data={listVideo}
-              style={styles.conYtb}
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              renderItem={({ item }) => (
-                <View>
-                  <TouchableOpacity
-                    style={styles.conBtnVideo}
-                    onPress={() => this._playVideo(item.key)}>
-                    <Text style={styles.txtOverview}>{item.name}</Text>
-                  </TouchableOpacity>
-                </View>
-              )}
-            />
-          ) : (
-            <Text style={styles.txtOverview}>No Videos Available</Text>
-          )}
-        </View> */}
         <View>
           <Text style={styles.txtTitle}>Reviews: </Text>
           {reviewData?.length > 0 ? (
@@ -156,9 +127,6 @@ const Component = (props) => {
                         setExpand(false)
                       }>
                       <View style={styles.headReview}>
-                        {/* <View style={styles.conLogo}>
-                          <Logo />
-                        </View> */}
                         <Text style={styles.txtOverview}>{item.author}</Text>
                       </View>
                       <View>
@@ -172,9 +140,6 @@ const Component = (props) => {
                         setExpand(true)
                       }>
                       <View style={styles.headReview}>
-                        {/* <View style={styles.imgLogo}>
-                          <Logo />
-                        </View> */}
                         <Text style={styles.txtOverview}>{item.author}</Text>
                       </View>
                       <View>

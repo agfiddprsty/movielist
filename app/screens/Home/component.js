@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
-import MainScreen from '../../components/layouts/MainScreen';
-import Button from '../../components/elements/ButtonPrimary';
-import TextField from '../../components/elements/TextField';
 import styles from './styles';
 import { ENDPOINT } from '../../configs';
 
-// import measureNetworkBandwitdh from '../../utils/checkBandwidth';
-// import errors from '../../utils/errors';
-// import I18n from '../../i18n';
-
 const Component = props => {
-  console.log(props)
-  const {navigation} = props;
-  const [isLoading, setIsLoading] = useState(false);
+  const { navigation } = props;
   const [data, setData] = useState();
-  // const [value, setValue] = useState('');
 
   useEffect(() => {
     getMovieData()
@@ -23,7 +13,6 @@ const Component = props => {
 
   const getMovieData = async () => {
     try {
-      setIsLoading(true);
       const result = await ENDPOINT.getMovieList();
       setData(result.results)
     } catch (error) {
@@ -32,7 +21,7 @@ const Component = props => {
   }
 
   const onPressDetail = (id) => {
-    navigation.navigate('DetailMovie', {id: id})
+    navigation.navigate('DetailMovie', { id: id })
   }
 
   const CardItem = ({ item }) => {
