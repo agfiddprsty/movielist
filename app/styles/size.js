@@ -1,0 +1,43 @@
+export const BORDER_RADIUS_NONE = 0;
+export const BORDER_RADIUS_XXS = 2;
+export const BORDER_RADIUS_XS = 4;
+export const BORDER_RADIUS_SM = 6;
+export const BORDER_RADIUS_MD = 8;
+export const BORDER_RADIUS_LG = 10;
+export const BORDER_RADIUS_XL = 12;
+export const BORDER_RADIUS_XXL = 16;
+export const BORDER_RADIUS_XXXL = 20;
+export const BORDER_RADIUS_XXXXL = 24;
+export const BORDER_RADIUS_FULL = 9999;
+
+export const SPACING_NONE = 0;
+export const SPACING_XXS = 2;
+export const SPACING_XS = 4;
+export const SPACING_SM = 6;
+export const SPACING_MD = 8;
+export const SPACING_LG = 12;
+export const SPACING_XL = 16;
+export const SPACING_2XL = 20;
+export const SPACING_3XL = 24;
+export const SPACING_4XL = 32;
+export const SPACING_5XL = 40;
+export const SPACING_6XL = 48;
+export const SPACING_7XL = 64;
+export const SPACING_8XL = 80;
+export const SPACING_9XL = 96;
+export const SPACING_10XL = 128;
+export const SPACING_11XL = 160;
+
+export const WIDTH_XXS = 320;
+export const WIDTH_XS = 384;
+export const WIDTH_SM = 480;
+export const WIDTH_MD = 560;
+export const WIDTH_LG = 640;
+export const WIDTH_XL = 768;
+export const WIDTH_2XL = 1024;
+export const WIDTH_3XL = 1280;
+export const WIDTH_4XL = 1440;
+export const WIDTH_5XL = 1600;
+export const WIDTH_6XL = 1920;
+
+export const CONTAINER_PADDING = 16;
